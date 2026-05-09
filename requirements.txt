@@ -1,0 +1,38 @@
+python-dotenv
+pandas
+numpy==1.26.4
+seaborn
+matplotlib
+scikit-learn
+scipy
+plotly
+torch==2.2.2
+spacy
+
+pymongo>=4.6,<5
+certifi
+pyaml
+dill
+
+# Core ML stack
+xgboost==3.1.3
+catboost==1.2.8
+imbalanced-learn
+deepchecks>=0.14,<0.16
+
+# API stack (Pydantic v1 ecosystem)
+fastapi==0.125.0
+uvicorn==0.29.0
+python-multipart
+streamlit>=1.33
+
+# Tracking & MLOps
+mlflow==3.5.1
+dagshub==0.3.34
+
+# Utils
+from_root
+jinja2
+ipykernel
+
+-e .

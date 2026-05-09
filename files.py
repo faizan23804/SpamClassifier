@@ -1,0 +1,66 @@
+import os
+from pathlib import Path
+
+
+project_name = "SMS_Spam_Classifier"
+
+list_of_files = [
+
+    f"{project_name}/__init__.py",
+    f"{project_name}/components/__init__.py",
+    f"{project_name}/components/data_ingestion.py",
+    f"{project_name}/components/data_validation.py",
+    f"{project_name}/components/data_transformation.py",
+    f"{project_name}/components/model_trainer.py",
+    f"{project_name}/configurations/__init__.py",
+    f"{project_name}/configurations/mongodb_conn.py",
+    f"{project_name}/constant/__init__.py",
+    f"{project_name}/entity/__init__.py",
+    f"{project_name}/entity/config_entity.py",
+    f"{project_name}/entity/artifact_entity.py",
+    f"{project_name}/exceptions/__init__.py",
+    f"{project_name}/exceptions/exception.py",
+    f"{project_name}/logger/__init__.py",
+    f"{project_name}/logger/logging.py",
+    f"{project_name}/pipeline/__init__.py",
+    f"{project_name}/pipeline/train_pipeline.py",
+    f"{project_name}/pipeline/prediction_pipeline.py",
+    f"{project_name}/utils/__init__.py",
+    f"{project_name}/utils/main_utils.py",
+    "app.py",
+    "requirements.txt",
+    "Dockerfile",
+    ".dockerignore",
+    "main.py",
+    "config/schema.yaml",
+    ".github/workflows/main.yaml",
+    "README.md"
+    
+
+]
+
+
+
+for filepath in list_of_files:
+    filepath = Path(filepath)
+    filedir,filename = os.path.split(filepath)
+
+    if filedir != "":
+        os.makedirs(filedir,exist_ok=True)
+    if  (not os.path.exists(filepath)) or (os.path.getsize(filepath)==0):
+        with open(filepath, 'w') as f:
+            pass
+    else:
+        print(f"File already exists at: {filepath}")
+
+
+filepath = ""
+
+try:
+    if os.path.exists(filepath) and os.path.isfile(filepath):
+        os.remove(filepath)
+        print("File deleted successfully")
+    else:
+        print("Nothing to delete")
+except Exception as e:
+    print("Safe exit:", e)
