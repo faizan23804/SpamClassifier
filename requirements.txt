@@ -9,9 +9,8 @@ plotly
 torch==2.2.2
 spacy
 
-pymongo>=4.6,<5
-certifi
-pyaml
+psycopg_binary
+sqlalchemy
 dill
 
 # Core ML stack
