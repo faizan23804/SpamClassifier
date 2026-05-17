@@ -6,8 +6,8 @@ from SMS_Spam_Classifier.exceptions.exception import CustomException
 from SMS_Spam_Classifier.logger.logging import logging
 
 
-# ── Baseline stats captured from your training data ──────────────────────────
-# You set these once after first ingestion. They become your reference point.
+
+# Validation Check reference point.
 BASELINE_STATS = {
     "spam_ratio_min": 0.10,      # spam should be at least 10% of data
     "spam_ratio_max": 0.20,      # spam should be at most 20% of data

@@ -17,8 +17,6 @@ list_of_files = [
     f"{project_name}/exceptions/exception.py",
     f"{project_name}/logger/__init__.py",
     f"{project_name}/logger/logging.py",
-    f"{project_name}/utils/__init__.py",
-    f"{project_name}/utils/main_utils.py",
     f"{project_name}/database/sql_client.py",
     "app.py",
     "notebooks/test1.ipynb",

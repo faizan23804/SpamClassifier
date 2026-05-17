@@ -1,5 +1,6 @@
 from SMS_Spam_Classifier.components.data_ingestion import DataIngestion
 from SMS_Spam_Classifier.components.data_validation import DataValidation
+from SMS_Spam_Classifier.components.data_transformation import DataTransformation
 from SMS_Spam_Classifier.logger.logging import logging
 
 if __name__ == "__main__":
@@ -21,3 +22,8 @@ if __name__ == "__main__":
 
     if not is_valid:
         raise Exception("Data Validation FAILED. Fix data issues before proceeding.")
+    
+    #Stage 3: Data Transformation
+    logging.info(" STAGE 3: DATA TRANSFORMATION ")
+    transformation = DataTransformation(X_train, X_test, y_train, y_test)
+    X_train_smote, X_test_tfidf, y_train_smote, y_test = transformation.transform()
