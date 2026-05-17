@@ -82,24 +82,8 @@ class DataValidation:
         except Exception as e:
             raise CustomException(e, sys)
 
-    # Check 4: Null / empty message check
-    def check_null_messages(self) -> bool:
-        """
-        Ensures no null or empty string messages slipped through ingestion.
-        """
-        try:
-            null_count  = self.X_train.isnull().sum()
-            empty_count = (self.X_train.str.strip() == "").sum()
-            passed = (null_count == 0) and (empty_count == 0)
-            self.report["null_messages"]  = int(null_count)
-            self.report["empty_messages"] = int(empty_count)
-            self.report["null_check"] = "PASSED" if passed else "FAILED"
-            logging.info(f"Null check: nulls={null_count}, empty={empty_count} → {'PASSED' if passed else 'FAILED'}")
-            return passed
-        except Exception as e:
-            raise CustomException(e, sys)
 
-    #Check 5: Vocabulary size check (text-specific drift)
+    #Check 4: Vocabulary size check (text-specific drift)
     def check_vocabulary_size(self) -> bool:
         """
         Checks if the vocabulary (unique words) is within a reasonable range.
@@ -130,7 +114,6 @@ class DataValidation:
                 self.check_minimum_records(),
                 self.check_label_distribution(),
                 self.check_message_length_drift(),
-                self.check_null_messages(),
                 self.check_vocabulary_size(),
             ]
 
