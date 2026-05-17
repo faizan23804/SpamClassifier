@@ -18,7 +18,6 @@ class SQLClient:
     SQLClient, you'd open 3 separate connection pools to the DB.
     Singleton ensures only ONE engine is created for the entire app lifecycle.
 
-    This is the exact same pattern you used in your MongoDBClient.
     """
 
     engine = None  # Class-level variable — shared across all instances

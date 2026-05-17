@@ -1,6 +1,7 @@
 from SMS_Spam_Classifier.components.data_ingestion import DataIngestion
 from SMS_Spam_Classifier.components.data_validation import DataValidation
 from SMS_Spam_Classifier.components.data_transformation import DataTransformation
+from SMS_Spam_Classifier.components.model_trainer import ModelTrainer
 from SMS_Spam_Classifier.logger.logging import logging
 
 if __name__ == "__main__":
@@ -27,3 +28,12 @@ if __name__ == "__main__":
     logging.info(" STAGE 3: DATA TRANSFORMATION ")
     transformation = DataTransformation(X_train, X_test, y_train, y_test)
     X_train_smote, X_test_tfidf, y_train_smote, y_test = transformation.transform()
+
+      #Stage 4: Model Training
+    logging.info("="*20 + " STAGE 4: MODEL TRAINING " + "="*20)
+    trainer = ModelTrainer(X_train_smote, X_test_tfidf, y_train_smote, y_test)
+    best_model, best_metrics = trainer.train_and_select_best()
+
+    print("\nPipeline completed successfully.")
+    print(f"Best model : {best_model}")
+    print(f"Best model metrics: {best_metrics}")

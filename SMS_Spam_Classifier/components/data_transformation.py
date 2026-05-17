@@ -26,7 +26,7 @@ class DataTransformation:
             # ngram_range=(1,2)  
             # sublinear_tf=True  → applies log normalization to term frequency
             self.vectorizer = TfidfVectorizer(
-                max_features=3000,
+                max_features=4000,
                 ngram_range=(1, 2),
                 sublinear_tf=True
             )
@@ -63,7 +63,7 @@ class DataTransformation:
             X_train_smote, y_train_smote = self.smote.fit_resample(X_train_tfidf, self.y_train)
 
 
-            # Save vectorizer so Streamlit app can vectorize new input
+            # Save vectorizer
             os.makedirs("models", exist_ok=True)
             with open(VECTORIZER_PATH, "wb") as f:
                 pickle.dump(self.vectorizer, f)
