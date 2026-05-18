@@ -4,6 +4,7 @@ from SMS_Spam_Classifier.components.data_transformation import DataTransformatio
 from SMS_Spam_Classifier.components.model_trainer import ModelTrainer
 from SMS_Spam_Classifier.logger.logging import logging
 
+
 if __name__ == "__main__":
 
     #Stage 1: Data Ingestion
@@ -30,7 +31,7 @@ if __name__ == "__main__":
     X_train_smote, X_test_tfidf, y_train_smote, y_test = transformation.transform()
 
       #Stage 4: Model Training
-    logging.info("="*20 + " STAGE 4: MODEL TRAINING " + "="*20)
+    logging.info(" STAGE 4: MODEL TRAINING ")
     trainer = ModelTrainer(X_train_smote, X_test_tfidf, y_train_smote, y_test)
     best_model, best_metrics = trainer.train_and_select_best()
 

@@ -42,8 +42,8 @@ class SQLDataUpload:
     def load_csv(self, file_path: str) -> pd.DataFrame:
         """
         Reads the CSV file and returns a clean DataFrame.
-        The SMS Spam dataset from Kaggle has 5 columns but only
-        the first two matter: v1 (label) and v2 (message).
+        The SMS Spam dataset from Kaggle has 5 columns but we are going to select
+        the first two : v1 (label) and v2 (message).
         """
         try:
             # encoding='latin-1' is necessary because spam.csv has special characters

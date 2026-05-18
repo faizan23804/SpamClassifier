@@ -25,7 +25,6 @@ list_of_files = [
     ".dockerignore",
     "sql_upload.py",
     "main.py",
-    "config/schema.yaml",
     ".github/workflows/main.yaml",
     "README.md"
     
