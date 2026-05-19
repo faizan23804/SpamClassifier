@@ -1,0 +1,28 @@
+<!-- SPAM Result Card -->
+<div class="result-{result_class}">
+    <div class="result-title">{result_icon} {result_label}</div>
+    <div class="result-subtitle">{result_message}</div>
+</div>
+
+<!-- Confidence Scores -->
+<div class="confidence-grid">
+    <div class="stat-box">
+        <div class="stat-num ham">{ham_prob}%</div>
+        <div class="stat-label">Ham probability</div>
+    </div>
+    <div class="stat-box">
+        <div class="stat-num spam">{spam_prob}%</div>
+        <div class="stat-label">Spam probability</div>
+    </div>
+</div>
+
+<!-- Preprocessed Text Section -->
+<div style="margin-top: 1.5rem;">
+    <div class="label-muted">🔬 How your message was preprocessed</div>
+    <div class="preprocess-box">
+        <div class="label-muted">Original:</div>
+        <p style="margin-bottom: 0.8rem; color: #333;">{original_message}</p>
+        <div class="label-muted">After spaCy preprocessing:</div>
+        <p style="color: #2c7a4b;">{preprocessed_message}</p>
+    </div>
+</div>
