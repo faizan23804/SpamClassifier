@@ -8,7 +8,6 @@ from imblearn.over_sampling import SMOTE # type: ignore
 from SMS_Spam_Classifier.exceptions.exception import CustomException
 from SMS_Spam_Classifier.logger.logging import logging
 
-# Saved vectorizer path — so app.py can load it for predictions
 VECTORIZER_PATH = "models/tfidf_vectorizer.pkl"
 
 
@@ -49,7 +48,7 @@ class DataTransformation:
             # fit_transform on train
             X_train_tfidf = self.vectorizer.fit_transform(self.X_train)
 
-            # transform on test — uses vocabulary learned from train
+            #transform on test
             X_test_tfidf  = self.vectorizer.transform(self.X_test)
 
             logging.info(
@@ -63,7 +62,7 @@ class DataTransformation:
             X_train_smote, y_train_smote = self.smote.fit_resample(X_train_tfidf, self.y_train)
 
 
-            # Save vectorizer
+            #Save vectorizer
             os.makedirs("models", exist_ok=True)
             with open(VECTORIZER_PATH, "wb") as f:
                 pickle.dump(self.vectorizer, f)

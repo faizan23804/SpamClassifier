@@ -50,7 +50,7 @@ class ModelTrainer:
 
     def train_and_select_best(self):
         """
-        Trains all models, compares by Precision,
+        Trains all models
         saves the best model to disk.
         """
         try:

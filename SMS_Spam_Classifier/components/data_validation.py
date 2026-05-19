@@ -83,7 +83,7 @@ class DataValidation:
             raise CustomException(e, sys)
 
 
-    #Check 4: Vocabulary size check (text-specific drift)
+    #Check 4: Vocabulary size check
     def check_vocabulary_size(self) -> bool:
         """
         Checks if the vocabulary (unique words) is within a reasonable range.

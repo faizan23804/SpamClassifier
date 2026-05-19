@@ -54,7 +54,6 @@ class DataIngestion:
         Cleans the raw DataFrame:
         - Removes null rows
         - Removes duplicate SMS messages
-        - Encodes label column: ham → 0, spam → 1
         """
         try:
             before = len(df)
@@ -70,7 +69,7 @@ class DataIngestion:
             )
 
 
-            # Sanity check — if any label failed to map, it becomes NaN
+            
             if df['label'].isnull().sum() > 0:
                 raise ValueError("Label encoding failed — unexpected values in 'label' column.")
 
@@ -82,7 +81,7 @@ class DataIngestion:
     
     def preprocess_text(self, text: str) -> str:
         try:
-            doc = self.nlp(text)   # ✅ Uses already-loaded model
+            doc = self.nlp(text)   
             tokens = []
             for token in doc:
                 if token.is_stop or token.is_punct or token.is_space:
@@ -103,8 +102,8 @@ class DataIngestion:
         Critical for imbalanced datasets like this one (~87% ham, ~13% spam).
         """
         try:
-            X = df['message']   # Features — raw SMS text
-            y = df['label']     # Target — 0 (ham) or 1 (spam)
+            X = df['message']   # Features 
+            y = df['label']     # Target 
 
             X_train, X_test, y_train, y_test = train_test_split(
                 X, y,
@@ -132,7 +131,7 @@ class DataIngestion:
 
             logging.info("Text preprocessing started. This may take a minute...")
 
-            # ✅ nlp.pipe() processes all messages in batches — far faster than .apply()
+            #nlp.pipe() processes all messages in batches
             messages = df["message"].tolist()
             processed = []
 
